@@ -93,8 +93,8 @@
     <h1>Eleven's Signal Station</h1>
     <p class="meta">Calibrate your relay pulse. Parameter order matters.</p>
     <p class="nonce">Signal ID: <span id="signal-id">--</span></p>
-    <!-- If hosting frontend on Netlify and backend elsewhere, replace BACKEND_BASE_URL below -->
-    <form id="signal-form" method="POST" action="https://your-backend.example.com/api/send">
+    <!-- Frontend may be hosted separately; backend lives on Render at the URL below -->
+    <form id="signal-form" method="POST" action="https://elevens-signal-station.onrender.com/api/send">
       <label for="user">User</label>
       <input type="text" id="user" name="user" maxlength="64" autocomplete="off" required>
 
