@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eleven's Signal Station</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background: #0f0f14;
+      color: #f2f2f6;
+    }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      background: radial-gradient(circle at top, #1e2745, #050509 70%);
+    }
+    .panel {
+      width: 100%;
+      max-width: 560px;
+      background: rgba(13, 17, 33, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+    h1 {
+      margin-top: 0;
+      font-size: 1.8rem;
+      letter-spacing: 0.04em;
+    }
+    p.meta {
+      font-size: 0.9rem;
+      color: #9ea5d1;
+    }
+    label {
+      display: block;
+      margin: 1rem 0 0.4rem;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #b1c1ff;
+    }
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(8, 12, 28, 0.8);
+      color: #f9f9ff;
+      font-size: 1rem;
+      resize: vertical;
+    }
+    button {
+      margin-top: 1.5rem;
+      width: 100%;
+      padding: 0.85rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: linear-gradient(120deg, #ff6f91, #845ef7);
+      color: white;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 20px rgba(132, 94, 247, 0.4);
+    }
+    .status {
+      margin-top: 1rem;
+      min-height: 1.2rem;
+      font-size: 0.95rem;
+      color: #ff7aa8;
+    }
+    .nonce {
+      font-size: 0.92rem;
+      color: #88f4ff;
+      letter-spacing: 0.08em;
+    }
+  </style>
+</head>
+<body>
+  <div class="panel">
+    <h1>Eleven's Signal Station</h1>
+    <p class="meta">Calibrate your relay pulse. Parameter order matters.</p>
+    <p class="nonce">Signal ID: <span id="signal-id">--</span></p>
+    <!-- If hosting frontend on Netlify and backend elsewhere, replace BACKEND_BASE_URL below -->
+    <form id="signal-form" method="POST" action="https://your-backend.example.com/api/send">
+      <label for="user">User</label>
+      <input type="text" id="user" name="user" maxlength="64" autocomplete="off" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="4" maxlength="512" required></textarea>
+
+      <button type="submit">Transmit</button>
+      <div id="status" class="status"></div>
+    </form>
+  </div>
+  <script src="client.js"></script>
+</body>
+</html>
+
